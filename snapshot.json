@@ -1,37 +1,37 @@
 {
- "updated": "2026-11-20T02:34:36+00:00",
+ "updated": "2026-11-20T03:12:44+00:00",
  "sources": {
   "etf": {
    "ok": false,
-   "at": "2026-11-20T02:34:37+00:00",
+   "at": "2026-11-20T03:12:45+00:00",
    "error": "Farside 表格中未找到 Total 列 (页面结构可能已变)",
    "fallback": "无可用数据"
   },
   "stable": {
    "ok": true,
-   "at": "2026-11-20T02:34:38+00:00"
+   "at": "2026-11-20T03:12:45+00:00"
   },
   "macro": {
    "ok": false,
-   "at": "2026-11-20T02:34:58+00:00",
+   "at": "2026-11-20T03:13:05+00:00",
    "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=20)",
    "fallback": "无可用数据"
   },
   "premium": {
    "ok": false,
-   "at": "2026-11-20T02:34:58+00:00",
+   "at": "2026-11-20T03:13:05+00:00",
    "error": "451 Client Error:  for url: https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT",
    "fallback": "无可用数据"
   },
   "derivs": {
    "ok": false,
-   "at": "2026-11-20T02:34:58+00:00",
+   "at": "2026-11-20T03:13:05+00:00",
    "error": "451 Client Error:  for url: https://fapi.binance.com/futures/data/globalLongShortAccountRatio?symbol=BTCUSDT&period=1d&limit=500",
    "fallback": "无可用数据"
   },
   "trend": {
    "ok": false,
-   "at": "2026-11-20T02:34:58+00:00",
+   "at": "2026-11-20T03:13:05+00:00",
    "error": "451 Client Error:  for url: https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=500",
    "fallback": "无可用数据"
   }
@@ -3316,7 +3316,7 @@
   "2026-11-17": 286444391373.0,
   "2026-11-18": 286258486953.0,
   "2026-11-19": 285228939203.0,
-  "2026-11-20": 283629923737.88
+  "2026-11-20": 283633072736.66
  },
  "macro": null,
  "premium": null,
