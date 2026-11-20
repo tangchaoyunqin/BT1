@@ -1,40 +1,61 @@
 {
- "updated": "2026-11-20T03:12:44+00:00",
+ "updated": "2026-11-20T04:06:32+00:00",
  "sources": {
   "etf": {
    "ok": false,
-   "at": "2026-11-20T03:12:45+00:00",
+   "at": "2026-11-20T04:06:33+00:00",
    "error": "Farside 表格中未找到 Total 列 (页面结构可能已变)",
    "fallback": "无可用数据"
   },
   "stable": {
    "ok": true,
-   "at": "2026-11-20T03:12:45+00:00"
+   "at": "2026-11-20T04:06:33+00:00"
   },
   "macro": {
    "ok": false,
-   "at": "2026-11-20T03:13:05+00:00",
+   "at": "2026-11-20T04:06:53+00:00",
    "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=20)",
    "fallback": "无可用数据"
   },
   "premium": {
    "ok": false,
-   "at": "2026-11-20T03:13:05+00:00",
+   "at": "2026-11-20T04:06:53+00:00",
    "error": "451 Client Error:  for url: https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT",
    "fallback": "无可用数据"
   },
   "derivs": {
    "ok": false,
-   "at": "2026-11-20T03:13:05+00:00",
+   "at": "2026-11-20T04:06:54+00:00",
    "error": "451 Client Error:  for url: https://fapi.binance.com/futures/data/globalLongShortAccountRatio?symbol=BTCUSDT&period=1d&limit=500",
    "fallback": "无可用数据"
   },
   "trend": {
    "ok": false,
-   "at": "2026-11-20T03:13:05+00:00",
+   "at": "2026-11-20T04:06:54+00:00",
    "error": "451 Client Error:  for url: https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=500",
    "fallback": "无可用数据"
+  },
+  "cot": {
+   "ok": true,
+   "at": "2026-11-20T04:06:54+00:00"
+  },
+  "onchain": {
+   "ok": false,
+   "at": "2026-11-20T04:06:54+00:00",
+   "error": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添加免费 Key）",
+   "fallback": "无可用数据"
+  },
+  "deribit": {
+   "ok": true,
+   "at": "2026-11-20T04:06:54+00:00"
+  },
+  "extra": {
+   "ok": true,
+   "at": "2026-11-20T04:08:14+00:00"
   }
+ },
+ "notes": {
+  "exchange_netflow": "无可靠免费数据源, 已停用手填, 待接入后自动更新"
  },
  "etf": null,
  "stable": {
@@ -3307,19 +3328,300 @@
   "2026-11-08": 291492853123.0,
   "2026-11-09": 291223253423.0,
   "2026-11-10": 290376223601.0,
-  "2026-11-11": 289483110253.0,
-  "2026-11-12": 289066437339.0,
-  "2026-11-13": 287773733081.0,
-  "2026-11-14": 287053452596.0,
-  "2026-11-15": 287096768749.0,
-  "2026-11-16": 287100084698.0,
-  "2026-11-17": 286444391373.0,
-  "2026-11-18": 286258486953.0,
-  "2026-11-19": 285228939203.0,
-  "2026-11-20": 283633072736.66
+  "2026-11-11": 289481407676.0,
+  "2026-11-12": 289064734763.0,
+  "2026-11-13": 287772030504.0,
+  "2026-11-14": 287051750019.0,
+  "2026-11-15": 287095066172.0,
+  "2026-11-16": 287098382122.0,
+  "2026-11-17": 286442688796.0,
+  "2026-11-18": 286256784377.0,
+  "2026-11-19": 285227236626.0,
+  "2026-11-20": 283622805872.37
  },
  "macro": null,
  "premium": null,
  "derivs": null,
- "trend": null
+ "trend": null,
+ "cot": {
+  "asof": "2026-11-10",
+  "days": [
+   "2026-10-06",
+   "2026-10-06",
+   "2026-10-13",
+   "2026-10-13",
+   "2026-10-20",
+   "2026-10-20",
+   "2026-10-27",
+   "2026-10-27",
+   "2026-11-03",
+   "2026-11-03",
+   "2026-11-10",
+   "2026-11-10"
+  ],
+  "lf": [
+   -16427,
+   -6852,
+   -13907,
+   -5844,
+   -13446,
+   -4942,
+   -11766,
+   -3979,
+   -5314,
+   -2591,
+   -5092,
+   -1243
+  ],
+  "am": 1956,
+  "market": "BITCOIN - CHICAGO MERCANTILE EXCHANGE"
+ },
+ "onchain": null,
+ "deribit": {
+  "put_call_oi": 0.7892,
+  "btc_options_oi": 412347.7,
+  "dvol": 46.69,
+  "dvol_chg_7d": 0.1446,
+  "asof": "2026-11-20"
+ },
+ "extra": {
+  "dxy": {
+   "value": null,
+   "asof": null,
+   "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read"
+  },
+  "nasdaq": {
+   "value": null,
+   "asof": null,
+   "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read"
+  },
+  "real10y": {
+   "value": null,
+   "asof": null,
+   "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read"
+  },
+  "hy_oas": {
+   "value": null,
+   "asof": null,
+   "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read"
+  }
+ },
+ "view": [
+  {
+   "cat": "资金",
+   "name": "美国BTC现货ETF日净流入(美元m)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "Farside 表格中未找到 Total 列 (页面结构可能已变)"
+  },
+  {
+   "cat": "资金",
+   "name": "稳定币总市值(美元)",
+   "value": 283622805872.37,
+   "asof": "2026-11-20",
+   "status": "ok",
+   "note": ""
+  },
+  {
+   "cat": "宏观",
+   "name": "10Y美债收益率(%)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "HTTPSConnectionPool(host='fred.stlouisfe"
+  },
+  {
+   "cat": "宏观",
+   "name": "美联储净流动性(十亿美元)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "HTTPSConnectionPool(host='fred.stlouisfe"
+  },
+  {
+   "cat": "跨资产",
+   "name": "美元指数(广义)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "无数据"
+  },
+  {
+   "cat": "跨资产",
+   "name": "纳斯达克综合指数",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "无数据"
+  },
+  {
+   "cat": "宏观",
+   "name": "10Y实际利率(TIPS,%)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "无数据"
+  },
+  {
+   "cat": "宏观",
+   "name": "高收益债信用利差(%)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "无数据"
+  },
+  {
+   "cat": "现货",
+   "name": "Coinbase溢价(美国需求代理)",
+   "value": null,
+   "asof": "2026-11-20",
+   "status": "miss",
+   "note": "451 Client Error:  for url: https://api."
+  },
+  {
+   "cat": "合约",
+   "name": "主动买卖比(Binance)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "451 Client Error:  for url: https://fapi"
+  },
+  {
+   "cat": "合约",
+   "name": "全球多空账户比",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "451 Client Error:  for url: https://fapi"
+  },
+  {
+   "cat": "合约",
+   "name": "大户多空持仓比",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "451 Client Error:  for url: https://fapi"
+  },
+  {
+   "cat": "合约",
+   "name": "资金费率(日均)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "451 Client Error:  for url: https://fapi"
+  },
+  {
+   "cat": "期权",
+   "name": "Deribit BTC 看跌/看涨持仓比",
+   "value": 0.7892,
+   "asof": "2026-11-20",
+   "status": "ok",
+   "note": ""
+  },
+  {
+   "cat": "期权",
+   "name": "BTC 隐含波动率 DVOL",
+   "value": 46.69,
+   "asof": "2026-11-20",
+   "status": "ok",
+   "note": ""
+  },
+  {
+   "cat": "趋势",
+   "name": "BTC现价偏离200日均线",
+   "value": null,
+   "asof": "2026-11-20",
+   "status": "miss",
+   "note": "451 Client Error:  for url: https://api."
+  },
+  {
+   "cat": "链上",
+   "name": "交易所净流入(BTC/日)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添"
+  },
+  {
+   "cat": "链上",
+   "name": "盈利中的供应量(LTH口径,Kote)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添"
+  },
+  {
+   "cat": "估值周期",
+   "name": "MVRV Z分数",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添"
+  },
+  {
+   "cat": "估值周期",
+   "name": "已实现价格(美元)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添"
+  },
+  {
+   "cat": "估值周期",
+   "name": "NUPL",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添"
+  },
+  {
+   "cat": "估值周期",
+   "name": "LTH/STH SOPR比率",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添"
+  },
+  {
+   "cat": "资金",
+   "name": "稳定币供应比率(SSR)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添"
+  },
+  {
+   "cat": "链上",
+   "name": "交易所BTC储备",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添"
+  },
+  {
+   "cat": "链上",
+   "name": "巨鲸积累/派发得分",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添"
+  },
+  {
+   "cat": "资金",
+   "name": "ETF资金流(Kote,交叉验证)",
+   "value": null,
+   "asof": null,
+   "status": "miss",
+   "note": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添"
+  },
+  {
+   "cat": "持仓",
+   "name": "CFTC杠杆资金净持仓(BTC期货)",
+   "value": -1243,
+   "asof": "2026-11-10",
+   "status": "ok",
+   "note": ""
+  }
+ ]
 }
