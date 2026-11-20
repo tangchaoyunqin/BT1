@@ -703,9 +703,40 @@ function applyServer(sv){
   window.__TREND200 = sv.trend || null;   // 长周期趋势: 200日均线状态（供展示与后续门控）
   window.__SERVER = sv;
   S.live.serverAt = sv.updated;
+  if(sv.onchain && (sv.onchain.netflow || sv.onchain.lth)){   // 链上：交易所净流入 + LTH 盈利占比（Kote Charts）
+    const nf=sv.onchain.netflow||{}, lt=sv.onchain.lth||{};
+    const days=new Set([...Object.keys(nf),...Object.keys(lt)]);
+    for(const d of days){ const t=Date.parse(d+'T00:00:00Z'); if(isNaN(t)) continue;
+      ST.onchain[DK(t)]={exNet: nf[d]!=null?nf[d]:null, lthProfit: lt[d]!=null?lt[d]:null}; }
+    S.live.src.onchain='Kote Charts（服务端自动）'; n++;
+  }
+  if(sv.view){ try{ renderView(sv.view); }catch(e){} }
   if(n) S.live.src.etf = 'Farside·服务端抓取';
+  if(sv.cot && sv.cot.lf && sv.cot.lf.length){             // CFTC 官方 COT（服务端，替代页面写死的旧数据）
+    const cot=INSTREF.cot; cot._live=true; cot.asof=sv.cot.asof; cot.lf=sv.cot.lf;
+    if(sv.cot.am!=null) cot.am=sv.cot.am; cot.src='CFTC 官方 TFF（服务端自动）';
+    ISERIES.cotLF=sv.cot.lf; ISERIES.cotD=sv.cot.days||null; n++;
+  }
   return n>0;
 }
+/* 统一观察表：服务端整理的全部免费数据点，含新鲜度状态 */
+function renderView(rows){
+  let card=document.getElementById('viewCard');
+  if(!card){ card=document.createElement('div'); card.id='viewCard'; card.className='card';
+    const ext=document.getElementById('ext'); const par=(ext&&ext.parentNode)||document.body;
+    par.insertBefore(card, ext?ext.nextSibling:null); }
+  const col={ok:'#4ade80',stale:'#fbbf24',miss:'#f87171'}, lab={ok:'正常',stale:'过期',miss:'缺失'};
+  let h='<h2>全量观察点（服务端自动·免费源）</h2><table style="width:100%;font-size:12px;border-collapse:collapse">';
+  h+='<tr style="color:#888"><th align=left>类别</th><th align=left>指标</th><th align=right>最新</th><th align=right>日期</th><th align=left>状态</th></tr>';
+  for(const r of rows){
+    h+=`<tr style="border-top:1px solid #222838"><td>${r.cat}</td><td>${r.name}</td><td align=right>${r.value==null?'—':r.value}</td><td align=right>${r.asof||'—'}</td><td style="color:${col[r.status]||'#888'}">${lab[r.status]||''}${r.note?' · '+r.note:''}</td></tr>`;
+  }
+  card.innerHTML=h+'</table>';
+}
+/* 数据署名（Kote Charts 非商用需署名；商用须书面许可） */
+document.addEventListener('DOMContentLoaded',()=>{ const f=document.createElement('div'); f.style.cssText='font-size:11px;color:#888;padding:8px 12px'; f.textContent='链上数据：Kote Charts（kotecharts.com），非商业使用需署名，商业使用须获其书面许可。'; document.body.appendChild(f); });
+/* v4.1: 数据全部自动获取，隐藏手填卡片 */
+document.addEventListener('DOMContentLoaded',()=>{ for(const id of ['taEtf','inExNet','btnOc']){ const e=document.getElementById(id); const c=e&&e.closest('.card'); if(c) c.style.display='none'; } });
 async function refresh(manual){
   if(S._busy) return; S._busy=true;                 // 防重入：上一轮没回来不叠罗汉
   const btn=el('btnRefresh'); if(btn){ btn.textContent='拉取中...'; btn.disabled=true; }
@@ -1098,7 +1129,7 @@ function renderProv(){
   push('账户多空比/大户持仓比', drow? (drow.lsrAccount||0).toFixed(2)+' / '+(drow.topLsrSize||0).toFixed(2):'—',(S.live.src.der||'Gate.io 日频'),drow?isod(drow.t):'—','是(L2,25%)');
   push('7日爆仓多/空(美元)', drow? nf(drow.liqLong)+' / '+nf(drow.liqShort):'—',(S.live.src.der||'Gate.io 日频'),drow?isod(drow.t):'—','是(L2,10%)');
   push('全网算力 EH/s', (S.live.hash||B.hash)[today]!=null? fmt((S.live.hash||B.hash)[today],2):'—',(S.live.src.hash||'mempool.space'),isod(today),'是(L3,35%)');
-  push('交易所净流入(BTC/日)', ST.onchain[DK(Date.parse((el('inOcDate')||{}).value||'2026-11-06'))]? ST.onchain[DK(Date.parse(el('inOcDate').value))].exNet : '未填','CryptoQuant/Nansen 人工录入',Object.keys(ST.onchain).length?iso(Math.max.apply(null,Object.keys(ST.onchain).map(Number))):'未填',Object.keys(ST.onchain).length?'是(L3,40%)':'否');
+  push('交易所净流入(BTC/日)', ST.onchain[DK(Date.parse((el('inOcDate')||{}).value||'2026-11-06'))]? ST.onchain[DK(Date.parse(el('inOcDate').value))].exNet : '无免费可靠源','已停用手填，待接入',Object.keys(ST.onchain).length?iso(Math.max.apply(null,Object.keys(ST.onchain).map(Number))):'未填',Object.keys(ST.onchain).length?'是(L3,40%)':'否');
   push('LTH 盈利占比 %', snap.onchain? snap.onchain.lthProfitShare:'—','CryptoQuant 实体调整口径',snap.onchain?snap.onchain.asof:'—','是(L3,25%)');
   push('美元指数 DXY', snap.dxy,'金投外汇/东财',iso(Date.parse('2026-11-16')),'β(L4)');
   push('美债 10Y', snap.us10y+'%','东方财富',iso(Date.parse('2026-11-16')),'β(L4)');
