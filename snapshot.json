@@ -1,57 +1,57 @@
 {
- "updated": "2026-11-26T06:58:45+00:00",
+ "updated": "2026-11-26T08:29:29+00:00",
  "sources": {
   "etf": {
    "ok": false,
-   "at": "2026-11-26T06:58:46+00:00",
+   "at": "2026-11-26T08:29:30+00:00",
    "error": "Farside 表格中未找到 Total 列 (页面结构可能已变)",
    "fallback": "无可用数据"
   },
   "stable": {
    "ok": true,
-   "at": "2026-11-26T06:58:46+00:00"
+   "at": "2026-11-26T08:29:30+00:00"
   },
   "macro": {
    "ok": false,
-   "at": "2026-11-26T06:59:06+00:00",
+   "at": "2026-11-26T08:29:50+00:00",
    "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=20)",
    "fallback": "无可用数据"
   },
   "premium": {
    "ok": false,
-   "at": "2026-11-26T06:59:06+00:00",
+   "at": "2026-11-26T08:29:51+00:00",
    "error": "451 Client Error:  for url: https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT",
    "fallback": "无可用数据"
   },
   "derivs": {
    "ok": false,
-   "at": "2026-11-26T06:59:07+00:00",
+   "at": "2026-11-26T08:29:51+00:00",
    "error": "451 Client Error:  for url: https://fapi.binance.com/futures/data/globalLongShortAccountRatio?symbol=BTCUSDT&period=1d&limit=500",
    "fallback": "无可用数据"
   },
   "trend": {
    "ok": false,
-   "at": "2026-11-26T06:59:07+00:00",
+   "at": "2026-11-26T08:29:51+00:00",
    "error": "451 Client Error:  for url: https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=500",
    "fallback": "无可用数据"
   },
   "cot": {
    "ok": true,
-   "at": "2026-11-26T06:59:07+00:00"
+   "at": "2026-11-26T08:29:51+00:00"
   },
   "onchain": {
    "ok": false,
-   "at": "2026-11-26T06:59:07+00:00",
+   "at": "2026-11-26T08:29:51+00:00",
    "error": "未设置 KOTE_API_KEY（需在 GitHub 仓库 Secrets 中添加免费 Key）",
    "fallback": "无可用数据"
   },
   "deribit": {
    "ok": true,
-   "at": "2026-11-26T06:59:08+00:00"
+   "at": "2026-11-26T08:29:52+00:00"
   },
   "extra": {
    "ok": true,
-   "at": "2026-11-26T07:00:28+00:00"
+   "at": "2026-11-26T08:31:12+00:00"
   }
  },
  "notes": {
@@ -3343,7 +3343,7 @@
   "2026-11-23": 282734538286.0,
   "2026-11-24": 283245898367.0,
   "2026-11-25": 282477385151.0,
-  "2026-11-26": 282226995468.3
+  "2026-11-26": 282238587952.0
  },
  "macro": null,
  "premium": null,
@@ -3384,10 +3384,10 @@
  },
  "onchain": null,
  "deribit": {
-  "put_call_oi": 0.8073,
-  "btc_options_oi": 446801.6,
-  "dvol": 52.09,
-  "dvol_chg_7d": 0.1319,
+  "put_call_oi": 0.8032,
+  "btc_options_oi": 442190.1,
+  "dvol": 51.22,
+  "dvol_chg_7d": 0.0998,
   "asof": "2026-11-26"
  },
  "extra": {
@@ -3424,7 +3424,7 @@
   {
    "cat": "资金",
    "name": "稳定币总市值(美元)",
-   "value": 282226995468.3,
+   "value": 282238587952.0,
    "asof": "2026-11-26",
    "status": "ok",
    "note": ""
@@ -3520,7 +3520,7 @@
   {
    "cat": "期权",
    "name": "Deribit BTC 看跌/看涨持仓比",
-   "value": 0.8073,
+   "value": 0.8032,
    "asof": "2026-11-26",
    "status": "ok",
    "note": ""
@@ -3528,7 +3528,7 @@
   {
    "cat": "期权",
    "name": "BTC 隐含波动率 DVOL",
-   "value": 52.09,
+   "value": 51.22,
    "asof": "2026-11-26",
    "status": "ok",
    "note": ""
